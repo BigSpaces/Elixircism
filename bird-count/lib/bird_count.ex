@@ -31,18 +31,34 @@ defmodule BirdCount do
    # Q, is this idiomatic? Why does it feel "weird" and non-poetic?
    # Also... it does not pass the tests. I find myself struggling to
    # translate tests results into plain English so I can diagonse.
-  def total([head | tail]) when tail == [], do: head
+  # def total([head | tail]) when tail == [], do: head
 
-  def total([head, head2 | tail]) do
-    total([head + head2 | tail])
-  end
+  # def total([head, head2 | tail]) do
+  #   total([head + head2 | tail])
+  # end
+    # def total([], sum) do
+    #   sum
+    # end
 
-  def busy_days([head | tail]) when tail == [] do: head
+    # def total(list, sum \\ 0) do
 
-  def busy_days([head1, head2 | tail]) when head2 >= 5
+    #   [head | tail] = list
+    #   total(tail, head + sum)
+    # end
 
+def total(list) do
+ recursive_total(list, 0)
+end
 
-  def busy_days([head1, head2 | tail]) when head2 <= 5
+def recursive_total([], sum), do: sum
+
+def recursive_total(list, sum) do
+      [head | tail] = list
+      recursive_total(tail, head + sum)
+end
+
+ # def busy_days(list) when tail == [] do: head
+
 
 
 
