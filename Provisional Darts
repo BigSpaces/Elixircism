@@ -1,0 +1,19 @@
+## Submitted Darts
+
+https://exercism.org/tracks/elixir/exercises/darts
+
+defmodule Darts do
+  @type position :: {number, number}
+  def radius({x, y}) do
+    :math.sqrt((x - 0) ** 2 + (y - 0) ** 2)
+  end
+  @spec score(position) :: integer
+  def score({x, y}) do
+    cond do
+      radius({x, y}) > 10 -> 0
+      radius({x, y}) > 5 -> 1
+      radius({x, y}) > 1 -> 5
+      radius({x, y}) >= 0 -> 10
+    end
+  end
+end
